@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Added the constraints for entity Evidencija.
+    -->
+    <changeSet id="20240701172452-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="korisnik_izvrsio_id"
+                                 baseTableName="evidencija"
+                                 constraintName="fk_evidencija__korisnik_izvrsio_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="korisnik_ispravio_id"
+                                 baseTableName="evidencija"
+                                 constraintName="fk_evidencija__korisnik_ispravio_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="raspored_id"
+                                 baseTableName="evidencija"
+                                 constraintName="fk_evidencija__raspored_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="raspored"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="vrsta_usluge_id"
+                                 baseTableName="evidencija"
+                                 constraintName="fk_evidencija__vrsta_usluge_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="vrsta_usluge"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="status_evidencije_id"
+                                 baseTableName="evidencija"
+                                 constraintName="fk_evidencija__status_evidencije_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="status_evidencije"
+                                 />
+    </changeSet>
+</databaseChangeLog>

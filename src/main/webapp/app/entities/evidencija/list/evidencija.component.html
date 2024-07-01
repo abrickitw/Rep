@@ -1,0 +1,230 @@
+<div>
+  <h2 id="page-heading" data-cy="EvidencijaHeading">
+    <span jhiTranslate="kaminApp.evidencija.home.title">Evidencijas</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [animation]="isLoading ? 'spin' : undefined"></fa-icon>
+        <span jhiTranslate="kaminApp.evidencija.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-evidencija"
+        [routerLink]="['/evidencija/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="kaminApp.evidencija.home.createLabel">Create a new Evidencija</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  @if (evidencijas?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="kaminApp.evidencija.home.notFound">No Evidencijas found</span>
+    </div>
+  }
+
+  @if (evidencijas && evidencijas.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [sortState]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="nazivEvidencija">
+              <div class="d-flex">
+                <span jhiTranslate="kaminApp.evidencija.nazivEvidencija">Naziv Evidencija</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="vrijemeUsluge">
+              <div class="d-flex">
+                <span jhiTranslate="kaminApp.evidencija.vrijemeUsluge">Vrijeme Usluge</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="komentar">
+              <div class="d-flex">
+                <span jhiTranslate="kaminApp.evidencija.komentar">Komentar</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="imeStanara">
+              <div class="d-flex">
+                <span jhiTranslate="kaminApp.evidencija.imeStanara">Ime Stanara</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="prezimeStanara">
+              <div class="d-flex">
+                <span jhiTranslate="kaminApp.evidencija.prezimeStanara">Prezime Stanara</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="kontaktStanara">
+              <div class="d-flex">
+                <span jhiTranslate="kaminApp.evidencija.kontaktStanara">Kontakt Stanara</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="datumIspravka">
+              <div class="d-flex">
+                <span jhiTranslate="kaminApp.evidencija.datumIspravka">Datum Ispravka</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="komentarIspravka">
+              <div class="d-flex">
+                <span jhiTranslate="kaminApp.evidencija.komentarIspravka">Komentar Ispravka</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="kucniBroj">
+              <div class="d-flex">
+                <span jhiTranslate="kaminApp.evidencija.kucniBroj">Kucni Broj</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="korisnikIzvrsio.login">
+              <div class="d-flex">
+                <span jhiTranslate="kaminApp.evidencija.korisnikIzvrsio">Korisnik Izvrsio</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="korisnikIspravio.login">
+              <div class="d-flex">
+                <span jhiTranslate="kaminApp.evidencija.korisnikIspravio">Korisnik Ispravio</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="raspored.datumUsluge">
+              <div class="d-flex">
+                <span jhiTranslate="kaminApp.evidencija.raspored">Raspored</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="vrstaUsluge.vrstaUslugeNaziv">
+              <div class="d-flex">
+                <span jhiTranslate="kaminApp.evidencija.vrstaUsluge">Vrsta Usluge</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="statusEvidencije.statusEvidencijeNaziv">
+              <div class="d-flex">
+                <span jhiTranslate="kaminApp.evidencija.statusEvidencije">Status Evidencije</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (evidencija of evidencijas; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/evidencija', evidencija.id, 'view']">{{ evidencija.id }}</a>
+              </td>
+              <td>{{ evidencija.nazivEvidencija }}</td>
+              <td>{{ evidencija.vrijemeUsluge }}</td>
+              <td>{{ evidencija.komentar }}</td>
+              <td>{{ evidencija.imeStanara }}</td>
+              <td>{{ evidencija.prezimeStanara }}</td>
+              <td>{{ evidencija.kontaktStanara }}</td>
+              <td>{{ evidencija.datumIspravka | formatMediumDate }}</td>
+              <td>{{ evidencija.komentarIspravka }}</td>
+              <td>{{ evidencija.kucniBroj }}</td>
+              <td>
+                {{ evidencija.korisnikIzvrsio?.login }}
+              </td>
+              <td>
+                {{ evidencija.korisnikIspravio?.login }}
+              </td>
+              <td>
+                @if (evidencija.raspored) {
+                  <div>
+                    <a [routerLink]="['/raspored', evidencija.raspored.id, 'view']">{{ evidencija.raspored.datumUsluge }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (evidencija.vrstaUsluge) {
+                  <div>
+                    <a [routerLink]="['/vrsta-usluge', evidencija.vrstaUsluge.id, 'view']">{{ evidencija.vrstaUsluge.vrstaUslugeNaziv }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (evidencija.statusEvidencije) {
+                  <div>
+                    <a [routerLink]="['/status-evidencije', evidencija.statusEvidencije.id, 'view']">{{
+                      evidencija.statusEvidencije.statusEvidencijeNaziv
+                    }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/evidencija', evidencija.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/evidencija', evidencija.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(evidencija)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (evidencijas && evidencijas.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

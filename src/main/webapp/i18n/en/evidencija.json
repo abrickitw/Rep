@@ -1,0 +1,37 @@
+{
+  "kaminApp": {
+    "evidencija": {
+      "home": {
+        "title": "Evidencijas",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Evidencija",
+        "createOrEditLabel": "Create or edit a Evidencija",
+        "notFound": "No Evidencijas found"
+      },
+      "created": "A new Evidencija is created with identifier {{ param }}",
+      "updated": "A Evidencija is updated with identifier {{ param }}",
+      "deleted": "A Evidencija is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Evidencija {{ id }}?"
+      },
+      "detail": {
+        "title": "Evidencija"
+      },
+      "id": "ID",
+      "nazivEvidencija": "Naziv Evidencija",
+      "vrijemeUsluge": "Vrijeme Usluge",
+      "komentar": "Komentar",
+      "imeStanara": "Ime Stanara",
+      "prezimeStanara": "Prezime Stanara",
+      "kontaktStanara": "Kontakt Stanara",
+      "datumIspravka": "Datum Ispravka",
+      "komentarIspravka": "Komentar Ispravka",
+      "kucniBroj": "Kucni Broj",
+      "korisnikIzvrsio": "Korisnik Izvrsio",
+      "korisnikIspravio": "Korisnik Ispravio",
+      "raspored": "Raspored",
+      "vrstaUsluge": "Vrsta Usluge",
+      "statusEvidencije": "Status Evidencije"
+    }
+  }
+}

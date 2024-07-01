@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (ulica()) {
+      <div>
+        <h2 data-cy="ulicaDetailsHeading"><span jhiTranslate="kaminApp.ulica.detail.title">Ulica</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ ulica()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="kaminApp.ulica.ulicaNaziv">Ulica Naziv</span></dt>
+          <dd>
+            <span>{{ ulica()!.ulicaNaziv }}</span>
+          </dd>
+          <dt><span jhiTranslate="kaminApp.ulica.grad">Grad</span></dt>
+          <dd>
+            @if (ulica()!.grad) {
+              <div>
+                <a [routerLink]="['/grad', ulica()!.grad?.id, 'view']">{{ ulica()!.grad?.gradNaziv }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="kaminApp.ulica.naselje">Naselje</span></dt>
+          <dd>
+            @if (ulica()!.naselje) {
+              <div>
+                <a [routerLink]="['/naselje', ulica()!.naselje?.id, 'view']">{{ ulica()!.naselje?.naseljeNaziv }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/ulica', ulica()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,28 @@
+{
+  "kaminApp": {
+    "raspored": {
+      "home": {
+        "title": "Rasporeds",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Raspored",
+        "createOrEditLabel": "Create or edit a Raspored",
+        "notFound": "No Rasporeds found"
+      },
+      "created": "A new Raspored is created with identifier {{ param }}",
+      "updated": "A Raspored is updated with identifier {{ param }}",
+      "deleted": "A Raspored is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Raspored {{ id }}?"
+      },
+      "detail": {
+        "title": "Raspored"
+      },
+      "id": "ID",
+      "datumUsluge": "Datum Usluge",
+      "grad": "Grad",
+      "naselje": "Naselje",
+      "ulica": "Ulica",
+      "korisnikKreirao": "Korisnik Kreirao"
+    }
+  }
+}

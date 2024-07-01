@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Added the constraints for entity Raspored.
+    -->
+    <changeSet id="20240701172453-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="grad_id"
+                                 baseTableName="raspored"
+                                 constraintName="fk_raspored__grad_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="grad"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="naselje_id"
+                                 baseTableName="raspored"
+                                 constraintName="fk_raspored__naselje_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="naselje"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="ulica_id"
+                                 baseTableName="raspored"
+                                 constraintName="fk_raspored__ulica_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ulica"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="korisnik_kreirao_id"
+                                 baseTableName="raspored"
+                                 constraintName="fk_raspored__korisnik_kreirao_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"
+                                 />
+    </changeSet>
+</databaseChangeLog>

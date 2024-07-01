@@ -1,0 +1,97 @@
+{
+  "annotations": {
+    "changelogDate": "20240701172452"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "nazivEvidencija",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "vrijemeUsluge",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "komentar",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "imeStanara",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "prezimeStanara",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "kontaktStanara",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "datumIspravka",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "komentarIspravka",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "kucniBroj",
+      "fieldType": "String"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "Evidencija",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityField": "login",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "createdEvidencija",
+      "relationshipName": "korisnikIzvrsio",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one",
+      "relationshipWithBuiltInEntity": true
+    },
+    {
+      "otherEntityField": "login",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "fixedEvidencija",
+      "relationshipName": "korisnikIspravio",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one",
+      "relationshipWithBuiltInEntity": true
+    },
+    {
+      "otherEntityField": "datumUsluge",
+      "otherEntityName": "raspored",
+      "relationshipName": "raspored",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "vrstaUslugeNaziv",
+      "otherEntityName": "vrstaUsluge",
+      "relationshipName": "vrstaUsluge",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "statusEvidencijeNaziv",
+      "otherEntityName": "statusEvidencije",
+      "relationshipName": "statusEvidencije",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

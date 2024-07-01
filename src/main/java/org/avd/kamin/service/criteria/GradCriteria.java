@@ -1,0 +1,127 @@
+package org.avd.kamin.service.criteria;
+
+import java.io.Serializable;
+import java.util.Objects;
+import java.util.Optional;
+import org.springdoc.core.annotations.ParameterObject;
+import tech.jhipster.service.Criteria;
+import tech.jhipster.service.filter.*;
+
+/**
+ * Criteria class for the {@link org.avd.kamin.domain.Grad} entity. This class is used
+ * in {@link org.avd.kamin.web.rest.GradResource} to receive all the possible filtering options from
+ * the Http GET request parameters.
+ * For example the following could be a valid request:
+ * {@code /grads?id.greaterThan=5&attr1.contains=something&attr2.specified=false}
+ * As Spring is unable to properly convert the types, unless specific {@link Filter} class are used, we need to use
+ * fix type specific filters.
+ */
+@ParameterObject
+@SuppressWarnings("common-java:DuplicatedBlocks")
+public class GradCriteria implements Serializable, Criteria {
+
+    private static final long serialVersionUID = 1L;
+
+    private LongFilter id;
+
+    private StringFilter gradNaziv;
+
+    private Boolean distinct;
+
+    public GradCriteria() {}
+
+    public GradCriteria(GradCriteria other) {
+        this.id = other.optionalId().map(LongFilter::copy).orElse(null);
+        this.gradNaziv = other.optionalGradNaziv().map(StringFilter::copy).orElse(null);
+        this.distinct = other.distinct;
+    }
+
+    @Override
+    public GradCriteria copy() {
+        return new GradCriteria(this);
+    }
+
+    public LongFilter getId() {
+        return id;
+    }
+
+    public Optional<LongFilter> optionalId() {
+        return Optional.ofNullable(id);
+    }
+
+    public LongFilter id() {
+        if (id == null) {
+            setId(new LongFilter());
+        }
+        return id;
+    }
+
+    public void setId(LongFilter id) {
+        this.id = id;
+    }
+
+    public StringFilter getGradNaziv() {
+        return gradNaziv;
+    }
+
+    public Optional<StringFilter> optionalGradNaziv() {
+        return Optional.ofNullable(gradNaziv);
+    }
+
+    public StringFilter gradNaziv() {
+        if (gradNaziv == null) {
+            setGradNaziv(new StringFilter());
+        }
+        return gradNaziv;
+    }
+
+    public void setGradNaziv(StringFilter gradNaziv) {
+        this.gradNaziv = gradNaziv;
+    }
+
+    public Boolean getDistinct() {
+        return distinct;
+    }
+
+    public Optional<Boolean> optionalDistinct() {
+        return Optional.ofNullable(distinct);
+    }
+
+    public Boolean distinct() {
+        if (distinct == null) {
+            setDistinct(true);
+        }
+        return distinct;
+    }
+
+    public void setDistinct(Boolean distinct) {
+        this.distinct = distinct;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        final GradCriteria that = (GradCriteria) o;
+        return Objects.equals(id, that.id) && Objects.equals(gradNaziv, that.gradNaziv) && Objects.equals(distinct, that.distinct);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, gradNaziv, distinct);
+    }
+
+    // prettier-ignore
+    @Override
+    public String toString() {
+        return "GradCriteria{" +
+            optionalId().map(f -> "id=" + f + ", ").orElse("") +
+            optionalGradNaziv().map(f -> "gradNaziv=" + f + ", ").orElse("") +
+            optionalDistinct().map(f -> "distinct=" + f + ", ").orElse("") +
+        "}";
+    }
+}

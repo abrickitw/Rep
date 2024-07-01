@@ -1,0 +1,24 @@
+{
+  "kaminApp": {
+    "vrstaUsluge": {
+      "home": {
+        "title": "Vrsta Usluges",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Vrsta Usluge erstellen",
+        "createOrEditLabel": "Vrsta Usluge erstellen oder bearbeiten",
+        "notFound": "Keine Vrsta Usluges gefunden"
+      },
+      "created": "Vrsta Usluge erstellt mit ID {{ param }}",
+      "updated": "Vrsta Usluge aktualisiert mit ID {{ param }}",
+      "deleted": "Vrsta Usluge gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Vrsta Usluge {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Vrsta Usluge"
+      },
+      "id": "ID",
+      "vrstaUslugeNaziv": "Vrsta Usluge Naziv"
+    }
+  }
+}

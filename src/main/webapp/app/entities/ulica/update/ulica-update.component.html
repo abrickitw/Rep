@@ -1,0 +1,82 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-ulica-heading" data-cy="UlicaCreateUpdateHeading" jhiTranslate="kaminApp.ulica.home.createOrEditLabel">
+        Create or edit a Ulica
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="kaminApp.ulica.id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_ulicaNaziv" jhiTranslate="kaminApp.ulica.ulicaNaziv">Ulica Naziv</label>
+          <input
+            type="text"
+            class="form-control"
+            name="ulicaNaziv"
+            id="field_ulicaNaziv"
+            data-cy="ulicaNaziv"
+            formControlName="ulicaNaziv"
+          />
+          @if (editForm.get('ulicaNaziv')!.invalid && (editForm.get('ulicaNaziv')!.dirty || editForm.get('ulicaNaziv')!.touched)) {
+            <div>
+              @if (editForm.get('ulicaNaziv')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_grad" jhiTranslate="kaminApp.ulica.grad">Grad</label>
+          <select class="form-control" id="field_grad" data-cy="grad" name="grad" formControlName="grad" [compareWith]="compareGrad">
+            <option [ngValue]="null"></option>
+            @for (gradOption of gradsSharedCollection; track $index) {
+              <option [ngValue]="gradOption">{{ gradOption.gradNaziv }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_naselje" jhiTranslate="kaminApp.ulica.naselje">Naselje</label>
+          <select
+            class="form-control"
+            id="field_naselje"
+            data-cy="naselje"
+            name="naselje"
+            formControlName="naselje"
+            [compareWith]="compareNaselje"
+          >
+            <option [ngValue]="null"></option>
+            @for (naseljeOption of naseljesSharedCollection; track $index) {
+              <option [ngValue]="naseljeOption">{{ naseljeOption.naseljeNaziv }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

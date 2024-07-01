@@ -1,0 +1,276 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-evidencija-heading" data-cy="EvidencijaCreateUpdateHeading" jhiTranslate="kaminApp.evidencija.home.createOrEditLabel">
+        Create or edit a Evidencija
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="kaminApp.evidencija.id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_nazivEvidencija" jhiTranslate="kaminApp.evidencija.nazivEvidencija">Naziv Evidencija</label>
+          <input
+            type="text"
+            class="form-control"
+            name="nazivEvidencija"
+            id="field_nazivEvidencija"
+            data-cy="nazivEvidencija"
+            formControlName="nazivEvidencija"
+          />
+          @if (
+            editForm.get('nazivEvidencija')!.invalid && (editForm.get('nazivEvidencija')!.dirty || editForm.get('nazivEvidencija')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('nazivEvidencija')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_vrijemeUsluge" jhiTranslate="kaminApp.evidencija.vrijemeUsluge">Vrijeme Usluge</label>
+          <input
+            type="text"
+            class="form-control"
+            name="vrijemeUsluge"
+            id="field_vrijemeUsluge"
+            data-cy="vrijemeUsluge"
+            formControlName="vrijemeUsluge"
+          />
+          @if (editForm.get('vrijemeUsluge')!.invalid && (editForm.get('vrijemeUsluge')!.dirty || editForm.get('vrijemeUsluge')!.touched)) {
+            <div>
+              @if (editForm.get('vrijemeUsluge')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_komentar" jhiTranslate="kaminApp.evidencija.komentar">Komentar</label>
+          <input type="text" class="form-control" name="komentar" id="field_komentar" data-cy="komentar" formControlName="komentar" />
+          @if (editForm.get('komentar')!.invalid && (editForm.get('komentar')!.dirty || editForm.get('komentar')!.touched)) {
+            <div>
+              @if (editForm.get('komentar')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_imeStanara" jhiTranslate="kaminApp.evidencija.imeStanara">Ime Stanara</label>
+          <input
+            type="text"
+            class="form-control"
+            name="imeStanara"
+            id="field_imeStanara"
+            data-cy="imeStanara"
+            formControlName="imeStanara"
+          />
+          @if (editForm.get('imeStanara')!.invalid && (editForm.get('imeStanara')!.dirty || editForm.get('imeStanara')!.touched)) {
+            <div>
+              @if (editForm.get('imeStanara')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_prezimeStanara" jhiTranslate="kaminApp.evidencija.prezimeStanara">Prezime Stanara</label>
+          <input
+            type="text"
+            class="form-control"
+            name="prezimeStanara"
+            id="field_prezimeStanara"
+            data-cy="prezimeStanara"
+            formControlName="prezimeStanara"
+          />
+          @if (
+            editForm.get('prezimeStanara')!.invalid && (editForm.get('prezimeStanara')!.dirty || editForm.get('prezimeStanara')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('prezimeStanara')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_kontaktStanara" jhiTranslate="kaminApp.evidencija.kontaktStanara">Kontakt Stanara</label>
+          <input
+            type="text"
+            class="form-control"
+            name="kontaktStanara"
+            id="field_kontaktStanara"
+            data-cy="kontaktStanara"
+            formControlName="kontaktStanara"
+          />
+          @if (
+            editForm.get('kontaktStanara')!.invalid && (editForm.get('kontaktStanara')!.dirty || editForm.get('kontaktStanara')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('kontaktStanara')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_datumIspravka" jhiTranslate="kaminApp.evidencija.datumIspravka">Datum Ispravka</label>
+          <div class="input-group">
+            <input
+              id="field_datumIspravka"
+              data-cy="datumIspravka"
+              type="text"
+              class="form-control"
+              name="datumIspravka"
+              ngbDatepicker
+              #datumIspravkaDp="ngbDatepicker"
+              formControlName="datumIspravka"
+            />
+            <button type="button" class="btn btn-secondary" (click)="datumIspravkaDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_komentarIspravka" jhiTranslate="kaminApp.evidencija.komentarIspravka"
+            >Komentar Ispravka</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="komentarIspravka"
+            id="field_komentarIspravka"
+            data-cy="komentarIspravka"
+            formControlName="komentarIspravka"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_kucniBroj" jhiTranslate="kaminApp.evidencija.kucniBroj">Kucni Broj</label>
+          <input type="text" class="form-control" name="kucniBroj" id="field_kucniBroj" data-cy="kucniBroj" formControlName="kucniBroj" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_korisnikIzvrsio" jhiTranslate="kaminApp.evidencija.korisnikIzvrsio">Korisnik Izvrsio</label>
+          <select
+            class="form-control"
+            id="field_korisnikIzvrsio"
+            data-cy="korisnikIzvrsio"
+            name="korisnikIzvrsio"
+            formControlName="korisnikIzvrsio"
+            [compareWith]="compareUser"
+          >
+            <option [ngValue]="null"></option>
+            @for (userOption of usersSharedCollection; track $index) {
+              <option [ngValue]="userOption">{{ userOption.login }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_korisnikIspravio" jhiTranslate="kaminApp.evidencija.korisnikIspravio"
+            >Korisnik Ispravio</label
+          >
+          <select
+            class="form-control"
+            id="field_korisnikIspravio"
+            data-cy="korisnikIspravio"
+            name="korisnikIspravio"
+            formControlName="korisnikIspravio"
+            [compareWith]="compareUser"
+          >
+            <option [ngValue]="null"></option>
+            @for (userOption of usersSharedCollection; track $index) {
+              <option [ngValue]="userOption">{{ userOption.login }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_raspored" jhiTranslate="kaminApp.evidencija.raspored">Raspored</label>
+          <select
+            class="form-control"
+            id="field_raspored"
+            data-cy="raspored"
+            name="raspored"
+            formControlName="raspored"
+            [compareWith]="compareRaspored"
+          >
+            <option [ngValue]="null"></option>
+            @for (rasporedOption of rasporedsSharedCollection; track $index) {
+              <option [ngValue]="rasporedOption">{{ rasporedOption.datumUsluge }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_vrstaUsluge" jhiTranslate="kaminApp.evidencija.vrstaUsluge">Vrsta Usluge</label>
+          <select
+            class="form-control"
+            id="field_vrstaUsluge"
+            data-cy="vrstaUsluge"
+            name="vrstaUsluge"
+            formControlName="vrstaUsluge"
+            [compareWith]="compareVrstaUsluge"
+          >
+            <option [ngValue]="null"></option>
+            @for (vrstaUslugeOption of vrstaUslugesSharedCollection; track $index) {
+              <option [ngValue]="vrstaUslugeOption">{{ vrstaUslugeOption.vrstaUslugeNaziv }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_statusEvidencije" jhiTranslate="kaminApp.evidencija.statusEvidencije"
+            >Status Evidencije</label
+          >
+          <select
+            class="form-control"
+            id="field_statusEvidencije"
+            data-cy="statusEvidencije"
+            name="statusEvidencije"
+            formControlName="statusEvidencije"
+            [compareWith]="compareStatusEvidencije"
+          >
+            <option [ngValue]="null"></option>
+            @for (statusEvidencijeOption of statusEvidencijesSharedCollection; track $index) {
+              <option [ngValue]="statusEvidencijeOption">{{ statusEvidencijeOption.statusEvidencijeNaziv }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

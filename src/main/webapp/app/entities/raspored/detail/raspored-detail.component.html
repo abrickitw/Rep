@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (raspored()) {
+      <div>
+        <h2 data-cy="rasporedDetailsHeading"><span jhiTranslate="kaminApp.raspored.detail.title">Raspored</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ raspored()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="kaminApp.raspored.datumUsluge">Datum Usluge</span></dt>
+          <dd>
+            <span>{{ raspored()!.datumUsluge | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="kaminApp.raspored.grad">Grad</span></dt>
+          <dd>
+            @if (raspored()!.grad) {
+              <div>
+                <a [routerLink]="['/grad', raspored()!.grad?.id, 'view']">{{ raspored()!.grad?.gradNaziv }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="kaminApp.raspored.naselje">Naselje</span></dt>
+          <dd>
+            @if (raspored()!.naselje) {
+              <div>
+                <a [routerLink]="['/naselje', raspored()!.naselje?.id, 'view']">{{ raspored()!.naselje?.naseljeNaziv }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="kaminApp.raspored.ulica">Ulica</span></dt>
+          <dd>
+            @if (raspored()!.ulica) {
+              <div>
+                <a [routerLink]="['/ulica', raspored()!.ulica?.id, 'view']">{{ raspored()!.ulica?.ulicaNaziv }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="kaminApp.raspored.korisnikKreirao">Korisnik Kreirao</span></dt>
+          <dd>
+            <span>{{ raspored()!.korisnikKreirao?.login }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/raspored', raspored()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

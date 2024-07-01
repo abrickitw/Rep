@@ -1,0 +1,102 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (evidencija()) {
+      <div>
+        <h2 data-cy="evidencijaDetailsHeading"><span jhiTranslate="kaminApp.evidencija.detail.title">Evidencija</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ evidencija()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="kaminApp.evidencija.nazivEvidencija">Naziv Evidencija</span></dt>
+          <dd>
+            <span>{{ evidencija()!.nazivEvidencija }}</span>
+          </dd>
+          <dt><span jhiTranslate="kaminApp.evidencija.vrijemeUsluge">Vrijeme Usluge</span></dt>
+          <dd>
+            <span>{{ evidencija()!.vrijemeUsluge }}</span>
+          </dd>
+          <dt><span jhiTranslate="kaminApp.evidencija.komentar">Komentar</span></dt>
+          <dd>
+            <span>{{ evidencija()!.komentar }}</span>
+          </dd>
+          <dt><span jhiTranslate="kaminApp.evidencija.imeStanara">Ime Stanara</span></dt>
+          <dd>
+            <span>{{ evidencija()!.imeStanara }}</span>
+          </dd>
+          <dt><span jhiTranslate="kaminApp.evidencija.prezimeStanara">Prezime Stanara</span></dt>
+          <dd>
+            <span>{{ evidencija()!.prezimeStanara }}</span>
+          </dd>
+          <dt><span jhiTranslate="kaminApp.evidencija.kontaktStanara">Kontakt Stanara</span></dt>
+          <dd>
+            <span>{{ evidencija()!.kontaktStanara }}</span>
+          </dd>
+          <dt><span jhiTranslate="kaminApp.evidencija.datumIspravka">Datum Ispravka</span></dt>
+          <dd>
+            <span>{{ evidencija()!.datumIspravka | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="kaminApp.evidencija.komentarIspravka">Komentar Ispravka</span></dt>
+          <dd>
+            <span>{{ evidencija()!.komentarIspravka }}</span>
+          </dd>
+          <dt><span jhiTranslate="kaminApp.evidencija.kucniBroj">Kucni Broj</span></dt>
+          <dd>
+            <span>{{ evidencija()!.kucniBroj }}</span>
+          </dd>
+          <dt><span jhiTranslate="kaminApp.evidencija.korisnikIzvrsio">Korisnik Izvrsio</span></dt>
+          <dd>
+            <span>{{ evidencija()!.korisnikIzvrsio?.login }}</span>
+          </dd>
+          <dt><span jhiTranslate="kaminApp.evidencija.korisnikIspravio">Korisnik Ispravio</span></dt>
+          <dd>
+            <span>{{ evidencija()!.korisnikIspravio?.login }}</span>
+          </dd>
+          <dt><span jhiTranslate="kaminApp.evidencija.raspored">Raspored</span></dt>
+          <dd>
+            @if (evidencija()!.raspored) {
+              <div>
+                <a [routerLink]="['/raspored', evidencija()!.raspored?.id, 'view']">{{ evidencija()!.raspored?.datumUsluge }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="kaminApp.evidencija.vrstaUsluge">Vrsta Usluge</span></dt>
+          <dd>
+            @if (evidencija()!.vrstaUsluge) {
+              <div>
+                <a [routerLink]="['/vrsta-usluge', evidencija()!.vrstaUsluge?.id, 'view']">{{
+                  evidencija()!.vrstaUsluge?.vrstaUslugeNaziv
+                }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="kaminApp.evidencija.statusEvidencije">Status Evidencije</span></dt>
+          <dd>
+            @if (evidencija()!.statusEvidencije) {
+              <div>
+                <a [routerLink]="['/status-evidencije', evidencija()!.statusEvidencije?.id, 'view']">{{
+                  evidencija()!.statusEvidencije?.statusEvidencijeNaziv
+                }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/evidencija', evidencija()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

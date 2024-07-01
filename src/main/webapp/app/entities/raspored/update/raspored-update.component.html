@@ -1,0 +1,116 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-raspored-heading" data-cy="RasporedCreateUpdateHeading" jhiTranslate="kaminApp.raspored.home.createOrEditLabel">
+        Create or edit a Raspored
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="kaminApp.raspored.id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_datumUsluge" jhiTranslate="kaminApp.raspored.datumUsluge">Datum Usluge</label>
+          <div class="input-group">
+            <input
+              id="field_datumUsluge"
+              data-cy="datumUsluge"
+              type="text"
+              class="form-control"
+              name="datumUsluge"
+              ngbDatepicker
+              #datumUslugeDp="ngbDatepicker"
+              formControlName="datumUsluge"
+            />
+            <button type="button" class="btn btn-secondary" (click)="datumUslugeDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+          @if (editForm.get('datumUsluge')!.invalid && (editForm.get('datumUsluge')!.dirty || editForm.get('datumUsluge')!.touched)) {
+            <div>
+              @if (editForm.get('datumUsluge')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_grad" jhiTranslate="kaminApp.raspored.grad">Grad</label>
+          <select class="form-control" id="field_grad" data-cy="grad" name="grad" formControlName="grad" [compareWith]="compareGrad">
+            <option [ngValue]="null"></option>
+            @for (gradOption of gradsSharedCollection; track $index) {
+              <option [ngValue]="gradOption">{{ gradOption.gradNaziv }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_naselje" jhiTranslate="kaminApp.raspored.naselje">Naselje</label>
+          <select
+            class="form-control"
+            id="field_naselje"
+            data-cy="naselje"
+            name="naselje"
+            formControlName="naselje"
+            [compareWith]="compareNaselje"
+          >
+            <option [ngValue]="null"></option>
+            @for (naseljeOption of naseljesSharedCollection; track $index) {
+              <option [ngValue]="naseljeOption">{{ naseljeOption.naseljeNaziv }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_ulica" jhiTranslate="kaminApp.raspored.ulica">Ulica</label>
+          <select class="form-control" id="field_ulica" data-cy="ulica" name="ulica" formControlName="ulica" [compareWith]="compareUlica">
+            <option [ngValue]="null"></option>
+            @for (ulicaOption of ulicasSharedCollection; track $index) {
+              <option [ngValue]="ulicaOption">{{ ulicaOption.ulicaNaziv }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_korisnikKreirao" jhiTranslate="kaminApp.raspored.korisnikKreirao">Korisnik Kreirao</label>
+          <select
+            class="form-control"
+            id="field_korisnikKreirao"
+            data-cy="korisnikKreirao"
+            name="korisnikKreirao"
+            formControlName="korisnikKreirao"
+            [compareWith]="compareUser"
+          >
+            <option [ngValue]="null"></option>
+            @for (userOption of usersSharedCollection; track $index) {
+              <option [ngValue]="userOption">{{ userOption.login }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

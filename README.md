@@ -108,6 +108,23 @@ update src/main/webapp/app/app.config.ts
 
 ## Building for production
 
+License and Usage Restrictions
+This repository is not open source and is provided for personal, educational, and non-commercial use only.
+
+Prohibited Uses
+Any form of commercial use or distribution of this code is strictly prohibited.
+Unauthorized use of this code in any product or service intended for commercial gain is forbidden.
+Legal Consequences
+Unauthorized use of this code for commercial purposes may result in legal action. By accessing or using this code, you agree to adhere to these restrictions and acknowledge the potential for legal consequences if the terms are violated.
+
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+Redistributions in source or binary form must retain the above copyright notice, this list of conditions, and the following disclaimer.
+The name of the author may not be used to endorse or promote products derived from this software without specific prior written permission.
+THIS SOFTWARE IS PROVIDED BY THE AUTHOR "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
 ### Packaging as jar
 
 To build the final jar and optimize the kamin application for production, run:

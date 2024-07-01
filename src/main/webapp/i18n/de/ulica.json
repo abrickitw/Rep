@@ -1,0 +1,26 @@
+{
+  "kaminApp": {
+    "ulica": {
+      "home": {
+        "title": "Ulicas",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Ulica erstellen",
+        "createOrEditLabel": "Ulica erstellen oder bearbeiten",
+        "notFound": "Keine Ulicas gefunden"
+      },
+      "created": "Ulica erstellt mit ID {{ param }}",
+      "updated": "Ulica aktualisiert mit ID {{ param }}",
+      "deleted": "Ulica gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Ulica {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Ulica"
+      },
+      "id": "ID",
+      "ulicaNaziv": "Ulica Naziv",
+      "grad": "Grad",
+      "naselje": "Naselje"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "kaminApp": {
+    "grad": {
+      "home": {
+        "title": "Grads",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Grad erstellen",
+        "createOrEditLabel": "Grad erstellen oder bearbeiten",
+        "notFound": "Keine Grads gefunden"
+      },
+      "created": "Grad erstellt mit ID {{ param }}",
+      "updated": "Grad aktualisiert mit ID {{ param }}",
+      "deleted": "Grad gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Grad {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Grad"
+      },
+      "id": "ID",
+      "gradNaziv": "Grad Naziv"
+    }
+  }
+}

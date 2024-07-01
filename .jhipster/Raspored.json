@@ -1,0 +1,51 @@
+{
+  "annotations": {
+    "changelogDate": "20240701172453"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "datumUsluge",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "Raspored",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityField": "gradNaziv",
+      "otherEntityName": "grad",
+      "relationshipName": "grad",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "naseljeNaziv",
+      "otherEntityName": "naselje",
+      "relationshipName": "naselje",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "ulicaNaziv",
+      "otherEntityName": "ulica",
+      "relationshipName": "ulica",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "login",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "createdRaspored",
+      "relationshipName": "korisnikKreirao",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one",
+      "relationshipWithBuiltInEntity": true
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

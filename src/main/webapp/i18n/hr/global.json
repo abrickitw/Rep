@@ -8,7 +8,13 @@
       "entities": {
         "main": "Entiteti",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
-        "adminAuthority": "Authority"
+        "evidencija": "Evidencija",
+        "raspored": "Raspored",
+        "grad": "Grad",
+        "ulica": "Ulica",
+        "naselje": "Naselje",
+        "vrstaUsluge": "Vrsta Usluge",
+        "statusEvidencije": "Status Evidencije"
       },
       "account": {
         "main": "Korisnički račun",

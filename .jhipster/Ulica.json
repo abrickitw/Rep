@@ -1,0 +1,35 @@
+{
+  "annotations": {
+    "changelogDate": "20240701172455"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "ulicaNaziv",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "Ulica",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityField": "gradNaziv",
+      "otherEntityName": "grad",
+      "relationshipName": "grad",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "naseljeNaziv",
+      "otherEntityName": "naselje",
+      "relationshipName": "naselje",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

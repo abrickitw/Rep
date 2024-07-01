@@ -1,0 +1,24 @@
+{
+  "kaminApp": {
+    "vrstaUsluge": {
+      "home": {
+        "title": "Vrsta Usluges",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Vrsta Usluge",
+        "createOrEditLabel": "Create or edit a Vrsta Usluge",
+        "notFound": "No Vrsta Usluges found"
+      },
+      "created": "A new Vrsta Usluge is created with identifier {{ param }}",
+      "updated": "A Vrsta Usluge is updated with identifier {{ param }}",
+      "deleted": "A Vrsta Usluge is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Vrsta Usluge {{ id }}?"
+      },
+      "detail": {
+        "title": "Vrsta Usluge"
+      },
+      "id": "ID",
+      "vrstaUslugeNaziv": "Vrsta Usluge Naziv"
+    }
+  }
+}

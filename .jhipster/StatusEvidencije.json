@@ -1,0 +1,19 @@
+{
+  "annotations": {
+    "changelogDate": "20240701172458"
+  },
+  "applications": "*",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "statusEvidencijeNaziv",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "StatusEvidencije",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

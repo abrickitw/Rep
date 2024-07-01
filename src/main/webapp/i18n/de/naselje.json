@@ -1,0 +1,25 @@
+{
+  "kaminApp": {
+    "naselje": {
+      "home": {
+        "title": "Naseljes",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Naselje erstellen",
+        "createOrEditLabel": "Naselje erstellen oder bearbeiten",
+        "notFound": "Keine Naseljes gefunden"
+      },
+      "created": "Naselje erstellt mit ID {{ param }}",
+      "updated": "Naselje aktualisiert mit ID {{ param }}",
+      "deleted": "Naselje gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Naselje {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Naselje"
+      },
+      "id": "ID",
+      "naseljeNaziv": "Naselje Naziv",
+      "grad": "Grad"
+    }
+  }
+}

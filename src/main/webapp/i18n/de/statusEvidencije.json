@@ -1,0 +1,24 @@
+{
+  "kaminApp": {
+    "statusEvidencije": {
+      "home": {
+        "title": "Status Evidencijes",
+        "refreshListLabel": "Liste aktualisieren",
+        "createLabel": "Status Evidencije erstellen",
+        "createOrEditLabel": "Status Evidencije erstellen oder bearbeiten",
+        "notFound": "Keine Status Evidencijes gefunden"
+      },
+      "created": "Status Evidencije erstellt mit ID {{ param }}",
+      "updated": "Status Evidencije aktualisiert mit ID {{ param }}",
+      "deleted": "Status Evidencije gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Status Evidencije {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Status Evidencije"
+      },
+      "id": "ID",
+      "statusEvidencijeNaziv": "Status Evidencije Naziv"
+    }
+  }
+}

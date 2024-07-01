@@ -1,0 +1,26 @@
+{
+  "kaminApp": {
+    "ulica": {
+      "home": {
+        "title": "Ulicas",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Kreirati Ulica",
+        "createOrEditLabel": "Kreirati ili urediti Ulica",
+        "notFound": "Nije nađeno Ulicas"
+      },
+      "created": "Kreiran je Ulica sa identifikatorom {{ param }}",
+      "updated": "Ažuriran je Ulica sa identifikatorom {{ param }}",
+      "deleted": "Obrisan je Ulica sa identifikatorom {{ param }}",
+      "delete": {
+        "question": "Da li ste sigurni da želite obrisati Ulica {{ id }}?"
+      },
+      "detail": {
+        "title": "Ulica"
+      },
+      "id": "ID",
+      "ulicaNaziv": "Ulica Naziv",
+      "grad": "Grad",
+      "naselje": "Naselje"
+    }
+  }
+}

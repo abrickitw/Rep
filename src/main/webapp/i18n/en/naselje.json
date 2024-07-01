@@ -1,0 +1,25 @@
+{
+  "kaminApp": {
+    "naselje": {
+      "home": {
+        "title": "Naseljes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Naselje",
+        "createOrEditLabel": "Create or edit a Naselje",
+        "notFound": "No Naseljes found"
+      },
+      "created": "A new Naselje is created with identifier {{ param }}",
+      "updated": "A Naselje is updated with identifier {{ param }}",
+      "deleted": "A Naselje is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Naselje {{ id }}?"
+      },
+      "detail": {
+        "title": "Naselje"
+      },
+      "id": "ID",
+      "naseljeNaziv": "Naselje Naziv",
+      "grad": "Grad"
+    }
+  }
+}

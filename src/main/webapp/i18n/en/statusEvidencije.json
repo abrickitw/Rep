@@ -1,0 +1,24 @@
+{
+  "kaminApp": {
+    "statusEvidencije": {
+      "home": {
+        "title": "Status Evidencijes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Status Evidencije",
+        "createOrEditLabel": "Create or edit a Status Evidencije",
+        "notFound": "No Status Evidencijes found"
+      },
+      "created": "A new Status Evidencije is created with identifier {{ param }}",
+      "updated": "A Status Evidencije is updated with identifier {{ param }}",
+      "deleted": "A Status Evidencije is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Status Evidencije {{ id }}?"
+      },
+      "detail": {
+        "title": "Status Evidencije"
+      },
+      "id": "ID",
+      "statusEvidencijeNaziv": "Status Evidencije Naziv"
+    }
+  }
+}

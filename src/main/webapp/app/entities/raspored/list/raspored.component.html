@@ -1,0 +1,155 @@
+<div>
+  <h2 id="page-heading" data-cy="RasporedHeading">
+    <span jhiTranslate="kaminApp.raspored.home.title">Rasporeds</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [animation]="isLoading ? 'spin' : undefined"></fa-icon>
+        <span jhiTranslate="kaminApp.raspored.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-raspored"
+        [routerLink]="['/raspored/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="kaminApp.raspored.home.createLabel">Create a new Raspored</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  @if (rasporeds?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="kaminApp.raspored.home.notFound">No Rasporeds found</span>
+    </div>
+  }
+
+  @if (rasporeds && rasporeds.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [sortState]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="datumUsluge">
+              <div class="d-flex">
+                <span jhiTranslate="kaminApp.raspored.datumUsluge">Datum Usluge</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="grad.gradNaziv">
+              <div class="d-flex">
+                <span jhiTranslate="kaminApp.raspored.grad">Grad</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="naselje.naseljeNaziv">
+              <div class="d-flex">
+                <span jhiTranslate="kaminApp.raspored.naselje">Naselje</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="ulica.ulicaNaziv">
+              <div class="d-flex">
+                <span jhiTranslate="kaminApp.raspored.ulica">Ulica</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="korisnikKreirao.login">
+              <div class="d-flex">
+                <span jhiTranslate="kaminApp.raspored.korisnikKreirao">Korisnik Kreirao</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (raspored of rasporeds; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/raspored', raspored.id, 'view']">{{ raspored.id }}</a>
+              </td>
+              <td>{{ raspored.datumUsluge | formatMediumDate }}</td>
+              <td>
+                @if (raspored.grad) {
+                  <div>
+                    <a [routerLink]="['/grad', raspored.grad.id, 'view']">{{ raspored.grad.gradNaziv }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (raspored.naselje) {
+                  <div>
+                    <a [routerLink]="['/naselje', raspored.naselje.id, 'view']">{{ raspored.naselje.naseljeNaziv }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (raspored.ulica) {
+                  <div>
+                    <a [routerLink]="['/ulica', raspored.ulica.id, 'view']">{{ raspored.ulica.ulicaNaziv }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                {{ raspored.korisnikKreirao?.login }}
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/raspored', raspored.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/raspored', raspored.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(raspored)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (rasporeds && rasporeds.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

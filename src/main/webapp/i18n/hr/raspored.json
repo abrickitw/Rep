@@ -1,0 +1,28 @@
+{
+  "kaminApp": {
+    "raspored": {
+      "home": {
+        "title": "Rasporeds",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Kreirati Raspored",
+        "createOrEditLabel": "Kreirati ili urediti Raspored",
+        "notFound": "Nije nađeno Rasporeds"
+      },
+      "created": "Kreiran je Raspored sa identifikatorom {{ param }}",
+      "updated": "Ažuriran je Raspored sa identifikatorom {{ param }}",
+      "deleted": "Obrisan je Raspored sa identifikatorom {{ param }}",
+      "delete": {
+        "question": "Da li ste sigurni da želite obrisati Raspored {{ id }}?"
+      },
+      "detail": {
+        "title": "Raspored"
+      },
+      "id": "ID",
+      "datumUsluge": "Datum Usluge",
+      "grad": "Grad",
+      "naselje": "Naselje",
+      "ulica": "Ulica",
+      "korisnikKreirao": "Korisnik Kreirao"
+    }
+  }
+}
